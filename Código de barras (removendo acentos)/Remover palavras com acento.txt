@@ -1,0 +1,44 @@
+Function RemoveAccents(code_str As String) As String
+    Dim i As Number
+    Dim ch As String
+    Dim result As String
+    
+    result = ""
+    
+    For i = 1 To Len(code_str)
+        ch = Mid(code_str, i, 1)
+        Select Case ch
+            Case "Á", "À", "Ã", "Â", "Ä"
+                : result = result & "A"
+            Case "á", "à", "ã", "â", "ä"
+                : result = result & "a"
+            Case "É", "È", "Ê", "Ë"
+                : result = result & "E"  
+            Case "é", "è", "ê", "ë"
+                : result = result & "e"
+            Case "Í", "Ì", "Î", "Ï"
+                : result = result & "I"
+            Case "í", "ì", "î", "ï"
+                : result = result & "i"
+            Case "Ó", "Ò", "Õ", "Ô", "Ö"
+                : result = result & "O"
+            Case "ó", "ò", "õ", "ô", "ö"
+                : result = result & "o"
+            Case "Ú", "Ù", "Û", "Ü"
+                : result = result & "U"
+            Case "ú", "ù", "û", "ü"
+                : result = result & "u"
+            Case "Ç"
+                : result = result & "C"
+            Case "ç"
+                : result = result & "c"
+            Case "Ñ"
+                : result = result & "N"
+            Case "ñ"
+                : result = result & "n"
+            Case Else
+                : result = result & ch
+        End Select
+    Next i
+    RemoveAccents = result
+End Function
